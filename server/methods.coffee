@@ -40,7 +40,7 @@ Meteor.methods
         if error.details.statusCode == 401
           data = {error: "Unauthorized", reason: "Invalid credentials"}
         else
-          data = {error: "3DCart server error", reason: "Invalid 3DCart Account Data. Try again."}
+          data = {error: "3DCart server error", reason: "Invalid 3DCart Account Data. Please try again."}
       else
         data = {}
 
