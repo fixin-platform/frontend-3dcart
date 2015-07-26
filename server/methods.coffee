@@ -1,7 +1,7 @@
 Meteor.methods
-  save3DCartCredential: secure (stepId, url, token, privateKey) ->
+  save_3DCartCredential: secure (stepId, url, token, privateKey) ->
     try
-      binding = new Bindings["3DCartCredentialTester"]
+      binding = new Bindings._3DCartCredentialTester
         credential:
           details:
             url: url
@@ -15,12 +15,12 @@ Meteor.methods
       response = future.wait()
 
       avatarValues =
-        api: "3DCart"
+        api: "_3DCart"
         uid: token
         name: url
         userId: @userId
       credentialValues =
-        api: "3DCart"
+        api: "_3DCart"
         scopes: ["*"]
         details:
           url: url
@@ -36,16 +36,13 @@ Meteor.methods
       now = new Date()
       error = createError(e)
       data = {}
-      if (error.error == "Request:failed")
+      if error.error is "Request:failed"
         if error.details.statusCode == 401
           data = {error: "Unauthorized", reason: "Invalid credentials"}
         else
           data = {error: "3DCart server error", reason: "Invalid 3DCart Account Data. Try again."}
       else
-        data = {
-          error: "Internal server error",
-          reason: "An error occurred during request. Please report about the problem if you have no idea how to fix it."
-        }
+        data = {}
 
       Issues.insert(_.extend(_.extend(error,
           stepId: stepId

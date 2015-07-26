@@ -1,4 +1,4 @@
-class Bindings["3DCart"] extends Bindings.Request
+class Bindings._3DCart extends Bindings.Request
   request: (options) ->
     _.defaults(options,
       baseUrl: "https://apirest.3dcart.com/3dCartWebAPI/v1"

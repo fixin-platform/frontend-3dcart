@@ -1,10 +1,10 @@
-Template.Add3DCartAvatar.helpers
+Template.Add_3DCartAvatar.helpers
 #  helper: ->
   options: ->
 #    if AvatarSubscriptionIsInitialized.equals(@api, true)
     Avatars.find({api: @api})
 
-Template.Add3DCartAvatar.onRendered ->
+Template.Add_3DCartAvatar.onRendered ->
   step = @data
   @$("input").first().focus()
   @$("form").formValidation
@@ -33,12 +33,12 @@ Template.Add3DCartAvatar.onRendered ->
     for field in $form.serializeArray()
       values[field.name] = field.value
 
-    Meteor.call "save3DCartCredential", step._id, values.url, values.token, values.privateKey, (error, avatarId) ->
+    Meteor.call "save_3DCartCredential", step._id, values.url, values.token, values.privateKey, (error, avatarId) ->
       $button.find(".ready").show()
       $button.find(".loading").hide()
 
       step.execute({avatarId: avatarId}) unless error
 
 
-Template.Add3DCartAvatar.events
+Template.Add_3DCartAvatar.events
 #  "click .selector": (event, template) ->

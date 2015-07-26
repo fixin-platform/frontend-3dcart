@@ -1,0 +1,22 @@
+template(name="Add_3DCartAvatar")
+  form.col-lg-6.col-xs-12.self-validation
+    .form-group
+      label.control-label(for="{{_id}}-url") {{{_i18n.add_3DCartTemplate.url.label}}}
+      input.form-control(id="{{_id}}-url" name="url" placeholder="{{{_i18n.add_3DCartTemplate.url.placeholder}}}")
+      p.help-block {{{_i18n.add_3DCartTemplate.url.help}}}
+    .form-group
+      label.control-label(for="{{_id}}-token") {{{_i18n.add_3DCartTemplate.token.label}}}
+      input.form-control(id="{{_id}}-token" name="token" placeholder="{{{_i18n.add_3DCartTemplate.token.placeholder}}}")
+      p.help-block {{{_i18n.add_3DCartTemplate.token.help}}}
+    .form-group
+      label.control-label(for="{{_id}}-privateKey") {{{_i18n.add_3DCartTemplate.privateKey.label}}}
+      input.form-control(id="{{_id}}-privateKey" name="privateKey" placeholder="{{{_i18n.add_3DCartTemplate.privateKey.placeholder}}}")
+      p.help-block {{{_i18n.add_3DCartTemplate.privateKey.help}}}
+    button.btn.btn-success(type="submit")
+      .ready.fa.fa-fw.fa-check
+      .loading.fa.fa-fw.fa-spin.fa-spinner(style="display: none;")
+      | {{{_i18n.add_3DCartTemplate.submit}}}
+    if options.count
+      | &nbsp;or&nbsp;
+      a.btn-link.cancel-add(href="#")
+        | {{{_i18n.add_3DCartTemplate.cancel}}}
